@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Travels</title>
+    <link rel="icon" href="./files/logo.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        /* Add your CSS styles here */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: black;
+            color: #333;
+        }
+        nav {
+            background-color: green;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar {
+            background-color: black;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar li,a {
+            margin-right: 20px;
+            color: #fff;
+        }
+        .nav-link {
+            color: #fff; /* Set the color to white for all nav links */
+        }
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            color: #fff;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+        }
+        .footlinks {
+            flex: 1;
+        }
+        .footlinks h4 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .footlinks ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #333;
+        }
+        .footlinks ul li {
+            margin-bottom: 10px;
+            text-align: center;
+            color: #191919;
+        }
+        .footlinks a {
+            color: #fff;
+        }
+        .social {
+            display: flex;
+            justify-content: center;
+        }
+        .social a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .social a i {
+            font-size: 24px;
+        }
+        .end {
+            margin-top: 20px;
+        }
+        /* Add your custom CSS styles here */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .image-container img {
+            width: calc(33.33% - 10px);
+            height: auto;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        .image-container img:last-child {
+            margin-right: 0;
+        }
+        @media only screen and (min-width: 768px) {
+            .image-container img {
+                width: calc(50% - 10px);
+            }
+        }
+        @media only screen and (min-width: 1024px) {
+            .image-container img {
+                width: calc(33.33% - 10px);
+            }
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .cards {
+            width: 48%;
+            margin-bottom: 20px;
+            background-color: #333;
+        }
+        .cards img {
+            width: 100%;
+            height: auto;
+        }
+        .cards-content {
+            padding: 10px;
+        }
+        .activity-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .activity {
+            width: calc(33.33% - 20px);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .activity-image {
+            width: 100%;
+            height: auto;
+        }
+        .activity-description {
+            flex-grow: 1;
+            padding: 10px;
+        }
+        /* Add responsive styles */
+        @media (max-width: 767px) {
+            .activity-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .activity {
+                width: 100%;
+            }
+            .book-now-button {
+                text-align: center; /* Center the button */
+                display: block; /* Ensure it's on its own line */
+                margin: 0 auto; /* Center horizontally */
+            }
+        }
+        @media only screen and (max-width: 1024px) {
+            .title h1{
+                font-size: 40px;
+                text-align: center;
+                margin-right: 0px;
+                display: block; /* Ensures the text is centered horizontally */
+            }
+            .navbar-brand {
+                position: absolute;
+                left: 0;
+                margin-left: 5px;
+            }
+            .navbar-toggler {
+                margin-left: 30%;
+                background-color: #fff;
+            }
+        }
+
+        @media only screen and (min-width: 1025px) {
+            .navbar-nav {
+                margin-left: auto;
+            }
+        }
+        .submitbtn {
+                display: block;
+                margin: 0 auto;
+                background-color: #fc0050;
+                font-size: 27px;
+                font-weight: 600px;
+                border: 2px solid transparent;
+                border-radius: 60px;
+                width: 320px;
+                cursor: pointer;
+                transition: ease 0.30s;
+        }
+
+        .submitbtn:hover {
+                border: 2px solid #fc0050;
+                background-color: #fc0050;
+                transform: scale(1.1);
+                color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a href=""><img src="/Files/" class="logo" alt="Logo" title="FirstFlight Travels"></a>
+    <div class="order-lg-2 order-md-3">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse order-lg-3 order-md-2" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/index.html" style="color: #fff;">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="color: #fff;">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="color: #fff;">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" style="color: #fff;">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section class="location-section">
+    <div id="image-carousel" class="slideshow-container">
+        <img class="slides img-fluid" src="Files/goa-breakfast.jpg" alt="Image 1">
+        <img class="slides img-fluid" src="Files/goavhcl.jpeg" alt="Image 2">
+        <img class="slides img-fluid" src="Files/img.png" alt="Image 3">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-16">
+                <div class="location-heading">
+                    <h1 style="font-size: 80px; color: #fff;">Silver <strong><span style="color: #fc0050; font-size: 60Px;">Package</span></strong></h1>
+                </div>
+            </div><br><br>
+            <div class="col-md-16">
+                <div class="location-detail" id="kashmir">
+                    <p style="font-size: xx-large; color: #fff;"><strong style="color: #fc0050; font-size: xx-large;">Duration:</strong>
+                        2 Days/1 Nights</p><br>
+                    <p style="font-size: xx-large; color: #fff;"><strong style="color: #fc0050; font-size: xx-large;">Cost:</strong>
+                        Starting from 3999 per person</p><br>
+                    <div class="location-heading">
+                        <h1 style="color: #fff; font-size: 50px;";>Inclusions:</h1>
+                    </div><br>
+                    </div>
+                    <div class="card" style="background-color: lightblue; border: 20px solid #fc0050;">
+                        <ul>
+                            <li style="font-size: 30px;">Accommodation in a standard hotel/resort (3-star category)</li>
+                            <li style="font-size: 30px;">Daily breakfast</li>
+                            <li style="font-size: 30px;">Sightseeing tours with a vehicle</li>
+                            <li style="font-size: 30px;">Transfers from airport/railway station to hotel and vice versa</li>
+                            <li style="font-size: 30px;">All applicable taxes</li>
+                            <li style="font-size: 30px;">24/7 customer support</li>
+                        </ul>
+                        <div class="image-container">
+                            <img class="location-image img-fluid" src="Files/goa-breakfast.jpg" alt="Gurudwara Bangla Sahib">
+                            <img class="location-image img-fluid" src="Files/goavhcl.jpeg" alt="Gurudwara Bangla Sahib">
+                            <img class="location-image img-fluid" src="Files/img.png" alt="Gurudwara Bangla Sahib">
+                        </div>
+                    </div><br>
+                    
+
+                    <div class="location-heading">
+                        <h1 style="color: #fff; font-size: 50px;">Exclusions:</h1>
+                    </div><br>
+                    <div class="card" style="background-color: lightblue; border: 20px solid #fc0050;">
+                        <ul>
+                            <li style="font-size: 30px;">Airfare/train/bus tickets</li>
+                            <li style="font-size: 30px;">Lunch and dinner (except breakfast)</li>
+                            <li style="font-size: 30px;">Entry fees to monuments and attractions</li>
+                            <li style="font-size: 30px;">Personal expenses and tips</li>
+                        </ul>
+                        <div class="image-container">
+                            <img class="location-image img-fluid" src="Files/goatrvltckt.jpeg" alt="Gurudwara Bangla Sahib">
+                            <img class="location-image img-fluid" src="Files/entryfee.png" alt="Gurudwara Bangla Sahib">
+                            <img class="location-image img-fluid" src="Files/goape.jpg" alt="Gurudwara Bangla Sahib">
+                        </div>
+                    </div>
+                </div>
+            <br><br>
+            <div class="col-md-16" >
+                <div class="location-heading">
+                    <h1 style="color: #fff; font-size: 50px;">Places To Visit In This <strong><span style="color: #fc0050; font-size: 38px;">Package</span></h1></strong>
+                </div><br><br>
+                <div class="card" style="background-color: lightblue; border: 20px solid #fc0050;">
+                    <h2></h2>
+                    <ul>
+                        <strong>
+                            <h1>Calangute Beach</h1>
+                        </strong>
+                        <p style="font-size: 25px;">Calangute Beach Known as the "Queen of Beaches," Calangute is one
+                            of the most popular and largest beaches in North Goa. It's famous for its golden sands, water
+                            sports activities, shacks serving delicious seafood, and vibrant nightlife.</p>
+                        <div class="image-container">
+                            <img class="location-image img-fluid" src="Files/brnzplcs/cb1.jpg" alt="">
+                            <img class="location-image img-fluid" src="Files/brnzplcs/cb2.jpg" alt="">
+                        </div><br>
+                        <strong>
+                            <h1>Calangute Beach</h1>
+                        </strong>
+                        <p style="font-size: 25px;">Calangute Beach Known as the "Queen of Beaches," Calangute is one
+                            of the most popular and largest beaches in North Goa. It's famous for its golden sands, water
+                            sports activities, shacks serving delicious seafood, and vibrant nightlife.</p>
+                        <div class="image-container">
+                            <img class="location-image img-fluid" src="Files/brnzplcs/cb1.jpg" alt="">
+                            <img class="location-image img-fluid" src="Files/brnzplcs/cb2.jpg" alt="">
+                            <h2 style="color: #fc0050; font-size: 40px;">Activities To Be</h2><br>
+                        </div><br>
+                        <ol>
+                            
+                            <div class="activity-container">
+                                <div class="activity">
+                                    <img class="activity-image" src="/Files/goa-breakfast.jpg" alt="">
+                                    <div class="activity-description" style="text-align: left;">
+                                        <p style="font-size: 20px;">Parasailing offers an exhilarating experience as participants soar above
+                                            the sea. With a parachute-like canopy, they enjoy breathtaking views of
+                                            the beach and surroundings. Safety is paramount, with operators supplying
+                                            harnesses and life jackets. Sessions typically last 10-15 minutes,
+                                            providing ample time to savor the adventure. Prices vary based on factors
+                                            like duration and season, ranging from ₹800 to ₹1500 per person.</p>
+                                    </div>
+                                </div>
+                                <div class="activity">
+                                    <a href="#"><img class="activity-image" src="/Files/goa-breakfast.jpg" alt=""></a>
+                                    <div class="activity-description">
+                                        <p style="font-size: 20px;">Banana Boat Rides offer group excitement as participants ride an
+                                            inflatable banana-shaped boat towed by a speedboat. Riders enjoy bouncing
+                                            and gliding over waves for a thrilling adventure. Safety is ensured with
+                                            provided life jackets and thorough operator safety measures. Rides
+                                            typically last 15-20 minutes, depending on the chosen package. Prices
+                                            range from ₹300 to ₹500 per person, making it an affordable and fun water
+                                            activity.</p>
+                                    </div>
+                                </div>
+                                <div class="activity">
+                                    <img class="activity-image" src="/Files/goatrvltckt.jpeg" alt="">
+                                    <div class="activity-description">
+                                        <p style="font-size: 20px;">Banana Boat Rides offer group excitement as participants ride an
+                                            inflatable banana-shaped boat towed by a speedboat. Riders enjoy bouncing
+                                            and gliding over waves for a thrilling adventure. Safety is ensured with
+                                            provided life jackets and thorough operator safety measures. Rides
+                                            typically last 15-20 minutes, depending on the chosen package. Prices
+                                            range from ₹300 to ₹500 per person, making it an affordable and fun water
+                                            activity.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </ol>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><br><br>
+<a href="/register.html" class="submitbtn" style="text-align: center;">Book Now</a>
+<!-- Footer -->
+<section class="footer">
+    <div class="foot">
+        <div class="footer-content">
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="./register.html">Register</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+                <h4>Connect</h4>
+                <div class="social">
+                    <a href="" target="_blank"><i class='bx bxl-facebook'></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-instagram'></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-twitter'></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-youtube'></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-wordpress'></i></a>
+                    <a href="" target="_blank"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <p>Copyright © 2022 Firstflight Travels All Rights Reserved.</p>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
